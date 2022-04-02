@@ -1,0 +1,38 @@
+
+#include <iostream>
+
+using namespace std;
+
+    string addBinary(string a, string b) {
+        int l1 = a.size();
+        int l2 = b.size();
+        int carry = 0,x = 0,y = 0, i=0;
+        string result = "";
+       // for(int i = a.size(); i< l1 || i< l2 || carry!=0;i++)
+        // or
+        while(i<l1 || i<l2 || carry!=0)
+        {
+            x = 0;
+            if(i<l1 && a[l1- i -1] == '1')  x = 1;
+            y = 0;
+            if(i<l2 && b[l2-i-1] == '1')    y = 1;
+            result = to_string((x+y+carry)%2) + result; 
+            
+            carry = (x+y+carry)/2;
+            i++;
+        }
+        return result;
+        
+    }
+
+
+int main()
+{
+    string a = "111";
+    string b = "10";
+    string n  = addBinary(a,b);
+    cout<<n;
+    
+
+    return 0;
+}
